@@ -68,3 +68,35 @@
 
 ## 6. Plan de la Primera Iteración (Fase de Elaboración)
 * **Objetivo:** Diseñar el diagrama de clases del dominio, estructurar el esquema relacional de la base de datos local y crear un prototipo funcional (MVP) de la interfaz de captura de asistencia en Android.
+
+
+
+---
+
+## Especificación Suplementaria (Categorización FURPS+)
+
+### 1. F — Functionality (Funcionalidades y Capacidades)
+* **Control de Asistencia y Avances:** Registro matutino de asistencias por trabajador y captura diaria de avances por destajo (botes, surcos, rejas).
+* **Gestión Financiera de Cuadrilla:** Cálculo automatizado de la raya sabatina descontando los préstamos/vales emitidos en la semana.
+* **Control Logístico:** Registro de gastos operativos del transporte (combustible, mantenimiento de vehículo) para determinar la ganancia neta real del encargado.
+
+### 2. U — Usability (Usabilidad y Factores Humanos)
+* **Interfaz de Campo:** Diseño visual táctil con botones amplios y alto contraste, optimizado para ser operado con una sola mano bajo luz solar directa.
+* **Flujo Eficiente:** Captura de asistencia y avance diario parametrizado a un máximo de 3 toques por trabajador.
+
+### 3. R — Reliability (Fiabilidad y Tolerancia a Fallos)
+* **Almacenamiento Seguro:** Persistencia local mediante SQLite/Room para prevenir pérdida de registros de nómina por descarga de batería o reinicios.
+* **Tolerancia a Desconexión:** Transacciones locales atómicas que garantizan consistencia en los datos aunque no exista cobertura de red celular.
+
+### 4. P — Performance (Rendimiento)
+* **Tiempos de Respuesta:** Confirmación y guardado de transacciones locales en menos de 1 segundo.
+* **Eficiencia Energética:** Uso optimizado de memoria y procesos en segundo plano para permitir jornadas completas en campo (8-10 horas) sin recarga del dispositivo.
+
+### 5. S — Supportability (Soportabilidad y Mantenibilidad)
+* **Compatibilidad:** Soporte para versiones de Android 8.0 (API 26) o superior en smartphones de gama baja/media.
+* **Arquitectura Modular:** Separación clara entre capas de lógica de negocio (cálculo de nómina) y lógica de almacenamiento local para facilitar mantenimiento futuro.
+
+### 6. + — Factores Auxiliares y Restricciones
+* **Implementación:** Desarrollo móvil en entorno Android nativo o híbrido con estrategia *Offline-First*.
+* **Interfaz:** Conexión asíncrona mediante API REST/JSON con el servidor backend en la nube al detectar conexión Wi-Fi o datos móviles.
+* **Operativo y Legal:** Cumplimiento con las políticas de privacidad en la gestión de datos de trabajadores y adecuación a los esquemas de pago tradicionales de la región.
